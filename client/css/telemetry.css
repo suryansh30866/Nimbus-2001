@@ -1,0 +1,17 @@
+#channelRows td:nth-child(n+2), .channel-monitor th:nth-child(n+2) { text-align: right; }
+#channelRows tr.selected td { background: #162025; color: var(--text-high); }
+.state-code { display: inline-flex; min-width: 58px; justify-content: space-between; gap: 5px; }
+.state-code.NOM { color: var(--nom); }
+.state-code.CAUT { color: var(--caut); }
+.state-code.WARN, .state-code.INV { color: var(--warn); }
+.state-code.LOST { color: var(--offline); }
+#channelSelector { flex-wrap: wrap; }
+.channel-toggle { min-width: 96px; justify-content: start; font-family: var(--mono); }
+.line-sample { display: inline-block; width: 24px; height: 0; border-top: 2px solid var(--data); margin-right: 7px; vertical-align: middle; }
+.line-sample.dashed { border-top-style: dashed; }
+.line-sample.dotted { border-top-style: dotted; }
+.line-sample.dotdash { border-top-style: double; }
+#channelDetail { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 12px; font-family: var(--mono); }
+#channelDetail .current { grid-column: 1 / 3; font-size: 34px; color: var(--text-high); border-bottom: 1px solid var(--border); padding-bottom: 10px; }
+#channelDetail dt { text-align: left; }
+#channelDetail dd { text-align: right; }

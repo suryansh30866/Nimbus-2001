@@ -1,0 +1,21 @@
+{
+  "name": "astra-mission-control",
+  "version": "1.0.0",
+  "description": "ASTRA Mission Control ground systems telemetry monitoring application.",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "dev": "node server/server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "socket.io": "^4.7.5"
+  },
+  "devDependencies": {
+    "chart.js": "^4.4.3",
+    "socket.io-client": "^4.8.3"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

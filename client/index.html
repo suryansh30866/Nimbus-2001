@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ASTRA Mission Control / GS-01</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/telemetry.css">
+  <link rel="stylesheet" href="css/replay.css">
+</head>
+<body>
+  <div class="startup" id="startup" aria-live="polite">
+    <div class="startup-title">ASTRA GROUND SYSTEMS</div>
+    <div class="startup-node">GS NODE / 01</div>
+    <pre>INITIALIZING CORE ............ OK
+LOADING CHANNEL REGISTRY ..... OK
+STARTING EVENT ENGINE ........ OK
+CONNECTING TELEMETRY BUS ..... OK</pre>
+    <div class="startup-ready">GS NODE READY</div>
+  </div>
+
+  <div class="width-guard">DISPLAY WIDTH BELOW OPERATIONAL LAYOUT REQUIREMENT<br>MINIMUM WIDTH / 1280 PX</div>
+
+  <div class="app" id="app" aria-label="ASTRA Mission Control">
+    <header class="system-bar">
+      <div class="brand-strip"><strong>ASTRA</strong> / GROUND SYSTEMS <span>GS-01</span></div>
+      <div class="bar-group"><span>MISSION</span><strong>ASTRA-01</strong></div>
+      <div class="bar-group"><span>SOURCE</span><strong id="topSource">SIM</strong></div>
+      <div class="bar-group"><span>SESSION</span><strong id="topSession">ACTIVE</strong></div>
+      <div class="bar-spacer"></div>
+      <div class="bar-group mono"><span>UTC</span><strong id="utcClock">--:--:--.---</strong></div>
+      <div class="state state-nom" id="topLink">● TM LINK</div>
+      <div class="state state-caut" id="topRec">REC / IDLE</div>
+      <div class="state state-nom">SYS::NOM</div>
+    </header>
+
+    <aside class="nav-rail">
+      <div class="node-mark">
+        <strong>ASTRA</strong>
+        <span>GROUND SYSTEMS</span>
+        <span>GS NODE 01</span>
+      </div>
+      <nav id="nav">
+        <button class="active" data-screen="overview">OVERVIEW</button>
+        <button data-screen="telemetry">TELEMETRY</button>
+        <button data-screen="link">LINK</button>
+        <button data-screen="events">EVENTS</button>
+        <button data-screen="packets">PACKETS</button>
+        <button data-screen="replay">REPLAY</button>
+        <button data-screen="sessions">SESSIONS</button>
+        <button data-screen="system">SYSTEM</button>
+      </nav>
+      <div class="nav-status mono">
+        <strong>ASTRA-01</strong>
+        <span id="navConn">● CONNECTED</span>
+        <span id="navRate">0.00 Hz</span>
+        <span id="navFrame">FRAME 000000</span>
+      </div>
+    </aside>
+
+    <main class="workspace">
+      <section class="screen active" id="screen-overview">
+        <div class="overview-grid">
+          <section class="panel primary-graph">
+            <div class="panel-head">
+              <div><span>TELEMETRY / PRIMARY CHANNEL</span><strong>ACC-Z / LAST 60 SEC</strong></div>
+              <div class="metrics-row mono"><span>RATE <b id="graphRate">0.00 Hz</b></span><span>SAMPLES <b id="graphSamples">0</b></span><span>RANGE <b>60 SEC</b></span></div>
+            </div>
+            <div class="chart-wrap"><canvas id="primaryChart"></canvas></div>
+          </section>
+          <section class="panel mission-clock">
+            <div class="label">MISSION ELAPSED TIME</div>
+            <div class="met mono" id="metClock">T+ 00:00:00.000</div>
+            <dl>
+              <dt>SESSION START</dt><dd id="sessionStart">--:--:-- UTC</dd>
+              <dt>FRAME</dt><dd id="clockFrame">000000</dd>
+              <dt>SOURCE</dt><dd id="clockSource">SIM / SYNTHETIC</dd>
+              <dt>PACKET RATE</dt><dd id="clockRate">0.00 Hz</dd>
+            </dl>
+            <button id="bigBoardBtn">BIG BOARD</button>
+          </section>
+          <section class="panel channel-monitor">
+            <div class="panel-head"><div><span>CHANNEL MONITOR</span><strong>DYNAMIC REGISTRY</strong></div></div>
+            <table>
+              <thead><tr><th>CHANNEL</th><th>VALUE</th><th>UNIT</th><th>Δ/SEC</th><th>MIN</th><th>MAX</th><th>SAMPLES</th><th>STATE</th></tr></thead>
+              <tbody id="channelRows"></tbody>
+            </table>
+          </section>
+          <section class="panel recent-events">
+            <div class="panel-head"><div><span>RECENT EVENTS</span><strong>LAST SIGNIFICANT</strong></div></div>
+            <div id="recentEvents" class="event-list"></div>
+          </section>
+        </div>
+      </section>
+
+      <section class="screen" id="screen-telemetry">
+        <div class="screen-head"><div><span>TELEMETRY ANALYSIS</span><strong>SESSION ASTRA-01</strong></div><div class="mono" id="telemetryMet">T+ 00:00:00.000</div></div>
+        <div class="toolbar" id="channelSelector"></div>
+        <section class="panel fill">
+          <div class="panel-head"><div><span>MULTI-CHANNEL GRAPH</span><strong id="holdState">LIVE FOLLOW / DATA INGEST ACTIVE</strong></div><div class="toolbar compact"><button data-range="10">10 SEC</button><button data-range="30">30 SEC</button><button class="active" data-range="60">60 SEC</button><button data-range="full">FULL</button><button id="holdBtn">HOLD</button><button id="inspectBtn">INSPECT</button></div></div>
+          <div class="chart-wrap tall"><canvas id="multiChart"></canvas></div>
+        </section>
+      </section>
+
+      <section class="screen" id="screen-link">
+        <div class="screen-head"><div><span>DATA TRANSPORT HEALTH</span><strong>PACKET LINK</strong></div></div>
+        <div class="metric-grid">
+          <div class="metric"><span>RECEIVE RATE</span><strong id="linkRate">0.00 Hz</strong></div>
+          <div class="metric"><span>EXPECTED RATE</span><strong>10.00 Hz</strong></div>
+          <div class="metric"><span>FRAME LOSS</span><strong id="frameLoss">0.00 %</strong></div>
+          <div class="metric"><span>AVG INTER-ARRIVAL</span><strong id="avgArrival">0.0 ms</strong></div>
+          <div class="metric"><span>JITTER</span><strong id="jitter">0.0 ms</strong></div>
+          <div class="metric"><span>LAST FRAME</span><strong id="linkFrame">000000</strong></div>
+          <div class="metric"><span>SEQUENCE GAPS</span><strong id="seqGaps">0</strong></div>
+        </div>
+        <div class="split">
+          <section class="panel"><div class="panel-head"><div><span>FRAME CONTINUITY</span><strong>LAST 24 FRAMES</strong></div></div><div id="continuity" class="continuity"></div></section>
+          <section class="panel"><div class="panel-head"><div><span>PACKET INTER-ARRIVAL / LAST 120 FRAMES</span><strong>milliseconds / frame sequence</strong></div></div><div class="chart-wrap"><canvas id="arrivalChart"></canvas></div></section>
+        </div>
+      </section>
+
+      <section class="screen" id="screen-events">
+        <div class="screen-head"><div><span>MISSION EVENTS</span><strong>DETERMINISTIC RULE OUTPUT</strong></div></div>
+        <div class="toolbar"><button class="active" data-event-filter="ALL">ALL</button><button data-event-filter="SYS">SYS</button><button data-event-filter="DATA">DATA</button><button data-event-filter="LINK">LINK</button><button data-event-filter="FILE">FILE</button><button data-event-filter="USER">USER</button><button class="active" data-sev-filter="INFO">INFO+</button><button data-sev-filter="ADVISORY">ADVISORY+</button><button data-sev-filter="CAUTION">CAUTION+</button><button data-sev-filter="WARNING">WARNING</button></div>
+        <div class="table-panel"><table><thead><tr><th>MET</th><th>UTC</th><th>CLASS</th><th>SEVERITY</th><th>SOURCE</th><th>EVENT</th></tr></thead><tbody id="eventRows"></tbody></table></div>
+      </section>
+
+      <section class="screen" id="screen-packets">
+        <div class="screen-head"><div><span>RAW TELEMETRY / PACKET STREAM</span><strong>DEVELOPER INSPECTION</strong></div><div class="toolbar compact"><button id="pausePackets">PAUSE VIEW</button><button id="clearPackets">CLEAR VIEW</button><button id="copyPacket">COPY PACKET</button></div></div>
+        <div class="packet-grid">
+          <section class="panel"><div class="filters"><label>DEVICE <input id="deviceFilter"></label><label>VALIDATION <select id="validFilter"><option>ALL</option><option>VALID</option><option>INVALID</option></select></label></div><div id="packetList" class="packet-list"></div></section>
+          <section class="panel"><div class="panel-head"><div><span id="packetTitle">FRAME ------</span><strong id="packetValidation">VALIDATION --</strong></div></div><pre id="packetJson" class="json-view">{}</pre></section>
+        </div>
+      </section>
+
+      <section class="screen" id="screen-replay">
+        <div class="screen-head"><div><span>TELEMETRY REPLAY</span><strong>SOURCE / REPLAY</strong></div></div>
+        <div class="replay-grid">
+          <section class="panel dataset">
+            <div id="emptyDataset"><strong>NO DATASET LOADED</strong><span>LOAD A RECORDED TELEMETRY DATASET TO BEGIN.</span><label class="file-btn">SELECT CSV<input type="file" id="csvInput" accept=".csv"></label></div>
+            <div id="datasetInfo" hidden></div>
+          </section>
+          <section class="panel replay-control">
+            <div class="panel-head"><div><span>REPLAY CONTROL / TEST-004</span><strong id="replayTime">T+ 00:00:00.000</strong></div></div>
+            <input type="range" id="replayScrub" min="0" max="0" value="0">
+            <div class="replay-scale mono"><span>00:00:00.000</span><span id="replayDuration">00:00:00.000</span></div>
+            <div class="replay-frame mono">FRAME <span id="replayFrame">000000 / 000000</span></div>
+            <div class="toolbar"><button id="rewindStart">|&lt;</button><button id="stepBack">&lt;&lt;</button><button id="playReplay">PLAY</button><button id="pauseReplay">PAUSE</button><button id="stepForward">&gt;&gt;</button><button id="rewindEnd">&gt;|</button></div>
+            <div class="toolbar rates"><button data-rate="0.5">0.5x</button><button class="active" data-rate="1">1.0x</button><button data-rate="2">2.0x</button><button data-rate="5">5.0x</button></div>
+          </section>
+          <section class="panel sim-panel">
+            <div class="panel-head"><div><span>TELEMETRY SOURCE SIMULATOR</span><strong>SOURCE / SIM</strong></div></div>
+            <label>DEVICE ID <input id="simDevice" value="SIM-001"></label>
+            <label>PACKET RATE <input id="simRate" type="number" value="10" min="1" max="30"> Hz</label>
+            <table><thead><tr><th>CHANNEL</th><th>SOURCE FIELD</th><th>STATE</th></tr></thead><tbody><tr><td>TEMP-A</td><td>temperature</td><td>ENABLED</td></tr><tr><td>ACC-X</td><td>accelerationX</td><td>ENABLED</td></tr><tr><td>ACC-Y</td><td>accelerationY</td><td>ENABLED</td></tr><tr><td>ACC-Z</td><td>accelerationZ</td><td>ENABLED</td></tr><tr><td>VBAT</td><td>batteryVoltage</td><td>ENABLED</td></tr></tbody></table>
+            <div class="toolbar wrap"><button id="startSim">START SOURCE</button><button id="stopSim">STOP SOURCE</button><button data-inject="missing">INJECT MISSING FRAME</button><button data-inject="invalid">INJECT INVALID SAMPLE</button><button data-inject="spike">INJECT VALUE SPIKE</button><button data-inject="flatline">INJECT FLATLINE</button></div>
+          </section>
+        </div>
+      </section>
+
+      <section class="screen" id="screen-sessions">
+        <div class="screen-head"><div><span>SESSION ARCHIVE</span><strong>REVIEW AND COMPARISON</strong></div></div>
+        <div class="split">
+          <section class="panel"><table><thead><tr><th>SESSION ID</th><th>DATE</th><th>SOURCE</th><th>DURATION</th><th>PACKETS</th><th>INVALID</th><th>EVENTS</th><th>STATE</th></tr></thead><tbody id="sessionRows"></tbody></table></section>
+          <section class="panel"><div class="panel-head"><div><span>SESSION COMPARISON</span><strong>COMMON DATA QUALITY</strong></div></div><div id="comparison" class="comparison"></div><div class="notes"><strong>ENGINEERING NOTES</strong><textarea placeholder="Manual operator note linked to selected session, timestamp, channel, or event."></textarea><button>ADD NOTE</button></div></section>
+        </div>
+      </section>
+
+      <section class="screen" id="screen-system">
+        <div class="screen-head"><div><span>GROUND SYSTEM HEALTH</span><strong>SYSTEM > DETECTION RULES</strong></div></div>
+        <div class="system-grid">
+          <section class="panel"><div class="panel-head"><div><span>CORE SERVICES</span><strong>ACTUAL APPLICATION STATE</strong></div></div><table><tbody id="systemRows"></tbody></table></section>
+          <section class="panel"><div class="panel-head"><div><span>DETECTION RULES</span><strong>TRANSPARENT EVENT LOGIC</strong></div></div><div id="ruleRows" class="rule-list"></div></section>
+        </div>
+      </section>
+    </main>
+
+    <aside class="context-panel" id="contextPanel">
+      <div class="panel-head"><div><span id="detailTitle">ACC-Z / CHANNEL DETAIL</span><strong>INSPECTOR</strong></div></div>
+      <div id="channelDetail"></div>
+      <div class="toolbar vertical"><button>PIN CHANNEL</button><button>OPEN FULL GRAPH</button><button>EXPORT CHANNEL</button></div>
+    </aside>
+
+    <footer class="event-console" id="eventConsole">
+      <div class="console-head"><span>BOTTOM EVENT CONSOLE</span><div class="toolbar compact"><button class="active" data-console-filter="ALL">ALL</button><button data-console-filter="TM">TM</button><button data-console-filter="DATA">DATA</button><button data-console-filter="SYS">SYS</button><button data-console-filter="LINK">LINK</button><button id="consolePause">PAUSE VIEW</button><button id="consoleClear">CLEAR VIEW</button><button id="consoleExpand">EXPAND</button></div></div>
+      <pre id="consoleLines"></pre>
+    </footer>
+  </div>
+
+  <section class="big-board" id="bigBoard" hidden>
+    <button id="closeBigBoard">EXIT</button>
+    <div class="big-head"><strong>ASTRA-01</strong><span id="bigMet">T+ 00:00:00.000</span><span id="bigLink">TM LINK / CONNECTED</span></div>
+    <div class="big-layout"><div><h2>PRIMARY TELEMETRY GRAPH</h2><canvas id="bigChart"></canvas></div><div class="big-values" id="bigValues"></div></div>
+    <div class="latest-event" id="bigEvent">LATEST EVENT / NONE</div>
+  </section>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/vendor/chart.js"></script>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

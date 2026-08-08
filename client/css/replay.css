@@ -1,0 +1,12 @@
+.replay-grid { height: calc(100% - 42px); display: grid; grid-template-columns: 330px 1fr; grid-template-rows: 260px 1fr; gap: 12px; }
+.dataset { grid-column: 1; grid-row: 1; padding: 14px; }
+#emptyDataset { height: 100%; display: grid; place-content: center; justify-items: start; gap: 12px; color: var(--text-2); }
+#datasetInfo { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 14px; font-family: var(--mono); }
+.replay-control { grid-column: 2; grid-row: 1; padding-bottom: 10px; }
+.replay-control input[type="range"] { width: calc(100% - 24px); margin: 22px 12px 8px; accent-color: var(--accent); }
+.replay-scale, .replay-frame { display: flex; justify-content: space-between; padding: 0 12px 12px; color: var(--text-2); }
+.replay-control .toolbar { padding: 0 12px; }
+.rates button.active { border-color: var(--accent); color: var(--accent); }
+.sim-panel { grid-column: 1 / 3; grid-row: 2; padding: 12px; overflow: auto; display: grid; grid-template-columns: 180px 140px 1fr; grid-auto-rows: max-content; gap: 12px; align-content: start; }
+.sim-panel .panel-head { grid-column: 1 / 4; margin: -12px -12px 0; }
+.sim-panel table, .sim-panel .toolbar { grid-column: 1 / 4; }

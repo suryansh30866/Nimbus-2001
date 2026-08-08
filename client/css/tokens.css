@@ -1,0 +1,22 @@
+:root {
+  --bg: #090C0E;
+  --panel: #0E1215;
+  --panel-2: #12171A;
+  --elevated: #161C20;
+  --text: #D7DCDE;
+  --text-high: #EDF0F1;
+  --text-2: #899397;
+  --text-muted: #596368;
+  --border: #252D31;
+  --divider: #1B2226;
+  --grid: rgba(137, 147, 151, 0.10);
+  --accent: #8EA7B0;
+  --data: #A8B8BD;
+  --nom: #7E9B88;
+  --caut: #B79A62;
+  --warn: #B86662;
+  --offline: #606A6E;
+  --unknown: #8A7F92;
+  --mono: "IBM Plex Mono", Consolas, monospace;
+  --sans: Inter, Arial, sans-serif;
+}

@@ -1,0 +1,27 @@
+* { box-sizing: border-box; }
+html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; background: var(--bg); color: var(--text); font-family: var(--sans); }
+body { font-size: 12px; letter-spacing: 0; }
+button, input, select, textarea { font: inherit; color: var(--text); }
+button { min-height: 28px; border: 1px solid var(--border); border-radius: 2px; background: var(--panel-2); padding: 0 10px; cursor: pointer; }
+button:hover, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 1px solid var(--accent); border-color: var(--accent); }
+button.active { color: var(--text-high); border-color: var(--accent); background: #162025; }
+input, select, textarea { background: #0B0F12; border: 1px solid var(--border); border-radius: 2px; padding: 6px 8px; }
+textarea { min-height: 130px; resize: vertical; }
+table { width: 100%; border-collapse: collapse; font-family: var(--mono); font-variant-numeric: tabular-nums; }
+th { height: 28px; color: var(--text-2); font-size: 10px; font-weight: 500; text-align: left; border-bottom: 1px solid var(--border); }
+td { height: 27px; border-bottom: 1px solid var(--divider); white-space: nowrap; }
+tr:hover td { background: rgba(142, 167, 176, 0.055); }
+.mono { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+.label, .panel-head span, .screen-head span { color: var(--text-2); font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; }
+strong { color: var(--text-high); font-weight: 500; }
+.state { font-family: var(--mono); }
+.state-nom { color: var(--nom); }
+.state-caut { color: var(--caut); }
+.state-warn { color: var(--warn); }
+.startup { position: fixed; inset: 0; z-index: 20; display: grid; place-content: center; gap: 12px; background: var(--bg); font-family: var(--mono); transition: opacity 160ms; }
+.startup-title { color: var(--text-high); font-size: 18px; }
+.startup-node, .startup-ready { color: var(--accent); }
+.startup pre { color: var(--text-2); line-height: 1.8; }
+.startup.hidden { opacity: 0; pointer-events: none; }
+.width-guard { display: none; position: fixed; inset: 0; z-index: 50; place-content: center; background: var(--bg); color: var(--text-high); font-family: var(--mono); text-align: center; line-height: 2; }
+@media (max-width: 1279px) { .app, .startup, .big-board { display: none !important; } .width-guard { display: grid; } }
