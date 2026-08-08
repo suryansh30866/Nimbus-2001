@@ -164,5 +164,4 @@ So this repository will keep changing as Nimbus-2001 develops.
 <img width="1079" height="596" alt="image" src="https://github.com/user-attachments/assets/91668028-9690-47ca-a331-b7b062ef5d52" />
 <img width="1079" height="600" alt="image" src="https://github.com/user-attachments/assets/2fdfb49e-bb7a-43b1-8d20-c3055c0e1607" />
 <img width="452" height="957" alt="image" src="https://github.com/user-attachments/assets/bf2e2b7c-fd00-440e-b971-4578a79d9917" />
-<img width="1076" height="592" alt="image" src="https://github.com/user-attachments/assets/3335ebff-7651-492f-9556-f2fdd7811bd3" />
 
