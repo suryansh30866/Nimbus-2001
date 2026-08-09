@@ -48,7 +48,7 @@ The following table lists the major materials, components, tools, safety equipme
 | 31 | Angle Grinder | — | 1 |
 | 32 | Sand Paper | — | 5 sheets |
 | 33 | MS Hollow Cylindrical Pipe | Approx. 6 in diameter × 1 ft height | 1 |
-
+| 34 | Ferric Oxide | — | 500 g |
 
 ## What's inside
 
