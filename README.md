@@ -9,6 +9,29 @@ This repository is basically the engineering archive of the project. I am keepin
 ---
 <img width="1076" height="592" alt="image" src="https://github.com/user-attachments/assets/4210fd41-88c0-408e-93a5-22cc37336762" />
 
+Part/Material,Quantity,Unit
+M8 Allen bolts,20,pcs
+M4 bolts,20,pcs
+MS nuts,10,pcs
+Safety gloves,1,pair
+Safety masks,2,pcs
+Safety goggles,1,pcs
+Pan,1,pcs
+Spatula,2,pcs
+Zip-lock bags,20,pcs
+Silica gel,300,pcs
+Beaker 1 L,1,pcs
+Beaker 500 ml,2,pcs
+Beaker 50 ml,2,pcs
+Beaker 10 ml,1,pcs
+PVC pipe,4,pcs
+Steel rods,4,pcs
+Sunboard,1,sheet
+Duct tape,5,rolls
+Feviquick,5,pcs
+M-Seal,5,pcs
+Sand paper,5,sheets
+
 ## What's inside
 
 The `ALL FILES` directory contains most of the engineering work for Nimbus-2001.
