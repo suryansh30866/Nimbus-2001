@@ -9,44 +9,46 @@ This repository is basically the engineering archive of the project. I am keepin
 ---
 <img width="1076" height="592" alt="image" src="https://github.com/user-attachments/assets/4210fd41-88c0-408e-93a5-22cc37336762" />
 
-Bill of Materials
+## Bill of Materials
 
 The following table lists the major materials, components, tools, safety equipment, and consumables used for the project.
 
-No.	Item	Specification / Description	Quantity
-1	Sorbitol Powder	—	5 kg
-2	MS Pipe	50 × 50 mm, 6 m length	2 pcs
-3	Potassium Nitrate	500 g packs	15 pcs
-4	Silicone Oil	250 ml	1
-5	Magnetic Stirrer	With Teflon-coated bar	1
-6	M8 Allen Bolts	—	20 pcs
-7	M4 Bolts	—	20 pcs
-8	MS Nuts	—	10 pcs
-9	Carbon Steel Block	Approx. 1 ft height × 6 in diameter	1
-10	Safety Gloves	Protective gloves	1 pair
-11	Safety Masks	Protective masks	2 pcs
-12	Safety Goggles	Eye protection	1 pc
-13	Hot Plate	—	1
-14	Pan	—	1
-15	Coffee Powder Making Machine	—	1
-16	Non-stick Pan	—	1
-17	Spatula	—	2 pcs
-18	Zip-lock Bags	Airtight storage bags	20 pcs
-19	Silica Gel	Desiccant packets	300 pcs
-20	Weighing Machine	—	1
-21	Beaker	1 L	1 pc
-22	Beaker	500 ml	2 pcs
-23	Beaker	50 ml	2 pcs
-24	Beaker	10 ml	1 pc
-25	PVC Pipe	Project tooling	4 pcs
-26	Steel Rods	Project tooling	4 pcs
-27	Sunboard	—	1 sheet
-28	Duct Tape	—	5 rolls
-29	Feviquick	Adhesive	5 pcs
-30	M-Seal	—	5 pcs
-31	Angle Grinder	—	1
-32	Sand Paper	—	5 sheets
-33	MS Hollow Cylindrical Pipe	Approx. 6 in diameter × 1 ft height	1
+| No. | Item | Specification / Description | Quantity |
+|---:|---|---|---:|
+| 1 | Sorbitol Powder | — | 5 kg |
+| 2 | MS Pipe | 50 × 50 mm, 6 m length | 2 pcs |
+| 3 | Potassium Nitrate | 500 g packs | 15 pcs |
+| 4 | Silicone Oil | 250 ml | 1 |
+| 5 | Magnetic Stirrer | With Teflon-coated bar | 1 |
+| 6 | M8 Allen Bolts | — | 20 pcs |
+| 7 | M4 Bolts | — | 20 pcs |
+| 8 | MS Nuts | — | 10 pcs |
+| 9 | Carbon Steel Block | Approx. 1 ft height × 6 in diameter | 1 |
+| 10 | Safety Gloves | Protective gloves | 1 pair |
+| 11 | Safety Masks | Protective masks | 2 pcs |
+| 12 | Safety Goggles | Eye protection | 1 pc |
+| 13 | Hot Plate | — | 1 |
+| 14 | Pan | — | 1 |
+| 15 | Coffee Powder Making Machine | — | 1 |
+| 16 | Non-stick Pan | — | 1 |
+| 17 | Spatula | — | 2 pcs |
+| 18 | Zip-lock Bags | Airtight storage bags | 20 pcs |
+| 19 | Silica Gel | Desiccant packets | 300 pcs |
+| 20 | Weighing Machine | — | 1 |
+| 21 | Beaker | 1 L | 1 pc |
+| 22 | Beaker | 500 ml | 2 pcs |
+| 23 | Beaker | 50 ml | 2 pcs |
+| 24 | Beaker | 10 ml | 1 pc |
+| 25 | PVC Pipe | Project tooling | 4 pcs |
+| 26 | Steel Rods | Project tooling | 4 pcs |
+| 27 | Sunboard | — | 1 sheet |
+| 28 | Duct Tape | — | 5 rolls |
+| 29 | Feviquick | Adhesive | 5 pcs |
+| 30 | M-Seal | — | 5 pcs |
+| 31 | Angle Grinder | — | 1 |
+| 32 | Sand Paper | — | 5 sheets |
+| 33 | MS Hollow Cylindrical Pipe | Approx. 6 in diameter × 1 ft height | 1 |
+
 
 ## What's inside
 
