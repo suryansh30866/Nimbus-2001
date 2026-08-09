@@ -171,6 +171,8 @@ The idea is to eventually have one interface where I can watch the important veh
 <img width="2160" height="1438" alt="image" src="https://github.com/user-attachments/assets/015f05a4-daa9-49d6-96b0-b8f33bec5736" />
 
 ---
+## Wiring diagram
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/3f41ccb7-9ec4-4783-b7a4-a75d554bf9c5" />
 
 ## Why this repository exists
 
