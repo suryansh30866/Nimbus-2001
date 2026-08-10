@@ -2,6 +2,8 @@
 
 Nimbus-2001 is an experimental rocket project I have been working on to learn and build across different parts of rocketry from CAD and structural design to simulations, ground testing, telemetry and software.
 
+<img width="3780" height="1890" alt="image" src="https://github.com/user-attachments/assets/4b2aebe7-c05c-4f55-b63f-71bc9344557f" />
+
 This repository is basically the engineering archive of the project. I am keeping the designs, simulations, reports, test data and software together so that the development of the rocket can be followed from the early designs to testing.
 
 > This is an experimental/student engineering project. Files in this repository may change as the design is tested and improved.
