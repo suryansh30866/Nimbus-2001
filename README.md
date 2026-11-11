@@ -9,7 +9,7 @@ This repository is basically the engineering archive of the project. I am keepin
 > This is an experimental/student engineering project. Files in this repository may change as the design is tested and improved.
 
 ---
-<img width="1076" height="592" alt="image" src="https://github.com/user-attachments/assets/4210fd41-88c0-408e-93a5-22cc37336762" />
+<img width="473" height="262" alt="{92F0DCBE-EBDB-43B9-84CD-48984A7D7742}" src="https://github.com/user-attachments/assets/aa0be2a6-95da-4622-baed-e16e2a6fa15b" />
 
 ## Bill of Materials
 
